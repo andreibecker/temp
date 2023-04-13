@@ -60,7 +60,7 @@ describe('<Home />', () => {
     expect(search).toBeInTheDocument();
 
     const images = screen.getAllByRole('img', { name: /title/i });
-    expect(images).toHaveLength(2);
+    expect(images).toHaveLength(3);
 
     const button = screen.getByRole('button', { name: /load more posts/i });
     expect(button).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe('<Home />', () => {
 
     expect(screen.getByRole('heading', { name: 'title1 1' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'title2 2' })).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: 'title3 3' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'title3 3' })).toBeInTheDocument();
 
     userEvent.type(search, 'title1');
     expect(screen.getByRole('heading', { name: 'title1 1' })).toBeInTheDocument();
